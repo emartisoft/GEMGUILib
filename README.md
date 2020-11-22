@@ -11,7 +11,7 @@ cd gemgui
 # to build sample
 cd ..
 make clean && make
-./gemGUISample
+./gemGuiSample
 
 '''
 
