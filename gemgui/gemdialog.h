@@ -27,6 +27,8 @@ class GEMDialog : public form
 		int result;
 	private:
 		paint::font f;	
+		nana::size ownersize;
 		void OnPaint();
+		void OnResized();
 };
 #endif // GEMDIALOG_H

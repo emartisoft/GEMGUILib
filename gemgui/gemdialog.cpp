@@ -17,6 +17,8 @@ GEMDialog::GEMDialog(GEMForm& owner) : form(owner, {300, 200}, appear::optional<
 	typeface(f);
 	OnPaint();
 	result=0;
+	ownersize=owner.size();
+	events().resized([this]() {GEMDialog::OnResized(); });
 }
 
 void GEMDialog::OnPaint()
@@ -41,6 +43,12 @@ void GEMDialog::OnPaint()
 		
 	});
 	dw.update();
+	
+}
+
+void GEMDialog::OnResized()
+{
+	move((ownersize.width-size().width)/2, (ownersize.height-size().height)/2);
 }
 
 
