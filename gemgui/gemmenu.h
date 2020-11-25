@@ -54,11 +54,11 @@ class GEMMenuRenderer : public menu::renderer_interface
 		{
 			nana::size splitCharSize = graph.bidi_extent_size("-");
 			string splitCharArray = "";
-			splitCharArray.append( (unsigned int)(rect_.width/splitCharSize.width) , '-');
+			splitCharArray.append( static_cast <unsigned int>(rect_.width/splitCharSize.width) , '-');
 			
-			point p0{4,pos.y+(int)splitCharSize.height/2};
-			point p1{4+(int)splitCharSize.width/2,(int)splitCharSize.height+pos.y};
-			point p2{4+(int)splitCharSize.width,pos.y};
+			point p0{4,pos.y+static_cast <int>(splitCharSize.height/2)};
+			point p1{4+static_cast <int>(splitCharSize.width/2),static_cast <int>(splitCharSize.height)+pos.y};
+			point p2{4+static_cast <int>(splitCharSize.width),pos.y};
 						
 			if (state::active == atr.item_state)
 			{
@@ -77,7 +77,7 @@ class GEMMenuRenderer : public menu::renderer_interface
 						graph.line(p1, p2, WHITE);
 						graph.line({p1.x+1, p1.y+1}, {p2.x+1, p2.y+1}, WHITE);
 					}
-					graph.string({(int)splitCharSize.width*3,pos.y}, text, atr.enabled ? WHITE : HIGHLIGHT);
+					graph.string({static_cast <int>(splitCharSize.width*3),pos.y}, text, atr.enabled ? WHITE : HIGHLIGHT);
 				}
 			}
 			else
@@ -96,7 +96,7 @@ class GEMMenuRenderer : public menu::renderer_interface
 						graph.line(p1, p2, BLACK);
 						graph.line({p1.x+1, p1.y+1}, {p2.x+1, p2.y+1}, BLACK);
 					}
-					graph.string({(int)splitCharSize.width*3,pos.y}, text, atr.enabled ? BLACK : HIGHLIGHT);
+					graph.string({static_cast <int>(splitCharSize.width*3),pos.y}, text, atr.enabled ? BLACK : HIGHLIGHT);
 				}
 			}
 		}

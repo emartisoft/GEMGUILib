@@ -50,7 +50,7 @@ void GEMButton::OnPaint()
 		g.rectangle(rectangle{ 2, 2, w-5, h-5 }, true, (pressed)?BLACK:WHITE);
 		g.rectangle(rectangle{ 3, 3, w-5, h-5 }, true, (pressed)?WHITE:LIGHT);
 		g.rectangle(rectangle{ 3, 3, w-6, h-6 }, true, HIGHLIGHT);
-		g.string({(int)((w - captionSize.width)/2+p), (int)((h - captionSize.height)/2+p)}, caption(), BLACK);
+		g.string({static_cast <int>((w - captionSize.width)/2+p), static_cast <int>((h - captionSize.height)/2+p)}, caption(), BLACK);
 		
 	});
 	dw.update();

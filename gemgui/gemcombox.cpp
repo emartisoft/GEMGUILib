@@ -43,7 +43,7 @@ void GEMCombox::OnPaint()
 		
 		g.rectangle(rectangle{ 0, 0, w, h }, true, BLACK);
 		g.rectangle(rectangle{ 2, 2, w-4, h-4 }, true, WHITE);
-		g.string({(int)((w - captionSize.width)/2), (int)((h - captionSize.height)/2)}, caption(), BLACK);
+		g.string({static_cast <int>((w - captionSize.width)/2), static_cast <int>((h - captionSize.height)/2)}, caption(), BLACK);
 		
 	});
 	dw.update();

@@ -125,10 +125,10 @@ void GEMForm::setTitle(string title)
 		
 		if (active)
 		{ 
-			for(int unsigned i=0;i<((unsigned int)(w/img.size().width) + 1);i++) img.paste(g, {(int)(1+img.size().width*i),2});
+			for(int unsigned i=0;i<((unsigned int)(w/img.size().width) + 1);i++) img.paste(g, {static_cast <int>(1+img.size().width*i),2});
 			nana::size captionSize = g.bidi_extent_size(dragBar.caption());
-			g.rectangle(rectangle{ {(int)((w - captionSize.width)/2), 2}, captionSize }, true, WHITE);
-			g.string({(int)((w - captionSize.width)/2), (int)((h - captionSize.height)/2)}, dragBar.caption(), BLACK);
+			g.rectangle(rectangle{ {static_cast <int>((w - captionSize.width)/2), 2}, captionSize }, true, WHITE);
+			g.string({static_cast <int>((w - captionSize.width)/2), static_cast <int>((h - captionSize.height)/2)}, dragBar.caption(), BLACK);
 		}
 	});
 	dw.update();
@@ -192,11 +192,11 @@ void GEMForm::OnPaint()
 		// client rect
 		g.rectangle(rectangle{ 1, 42, w-BUTTON_EDGE-4, h- 3*BUTTON_EDGE - 1 }, true, WHITE);
 		// right scroll bar
-		g.rectangle(rectangle{(int)w-BUTTON_EDGE-2, BUTTON_EDGE*3, BUTTON_EDGE-1, h- 5*BUTTON_EDGE - 5}, true, WHITE);
+		g.rectangle(rectangle{static_cast <int>(w-BUTTON_EDGE-2), BUTTON_EDGE*3, BUTTON_EDGE-1, h- 5*BUTTON_EDGE - 5}, true, WHITE);
 		g.line(point(w-4, BUTTON_EDGE*3+1), point(w-4, h- 2*BUTTON_EDGE - 6), LIGHT);
 		g.line(point(w-4, h- 2*BUTTON_EDGE - 6), point(w-1-BUTTON_EDGE, h- 2*BUTTON_EDGE - 6), LIGHT);
 		// bottom scroll bar
-		g.rectangle(rectangle{ BUTTON_EDGE+2, (int)h-2-BUTTON_EDGE, w-3*BUTTON_EDGE-7, BUTTON_EDGE-1}, true, WHITE);
+		g.rectangle(rectangle{ BUTTON_EDGE+2, static_cast <int>(h-2-BUTTON_EDGE), w-3*BUTTON_EDGE-7, BUTTON_EDGE-1}, true, WHITE);
 		g.line(point(BUTTON_EDGE+3, h-4), point(w-2*BUTTON_EDGE-6, h-4), LIGHT);
 		g.line(point(w-2*BUTTON_EDGE-6, h- BUTTON_EDGE - 1), point(w-2*BUTTON_EDGE-6, h-4), LIGHT);
 	});

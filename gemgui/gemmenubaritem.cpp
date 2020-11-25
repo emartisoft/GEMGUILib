@@ -33,7 +33,7 @@ void GEMMenubarItem::OnPaint()
 		nana::size captionSize = g.bidi_extent_size(caption());
 		
 		g.rectangle(rectangle{ 0, 0, w, h }, true, (entered)? BLACK : WHITE);
-		g.string({ (int)((w - captionSize.width)/2), (int)((h - captionSize.height)/2)}, caption(), (entered)? WHITE : BLACK);
+		g.string({ static_cast <int>((w - captionSize.width)/2), static_cast <int>((h - captionSize.height)/2)}, caption(), (entered)? WHITE : BLACK);
 		
 	});
 	dw.update();
